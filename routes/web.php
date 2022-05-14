@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,10 +15,11 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::controller(AdminController::class)->group(function () {
+    Route::get('admin', 'index')->name('admin');
+    Route::get('admin/manage-books', 'manageBooks')->name('manage_books');
+    Route::get('admin/manage-books/add', 'addBook')->name('add_book');
+    Route::get('admin/manage-categories', 'manageCategories')->name('manage_categories');
+});
