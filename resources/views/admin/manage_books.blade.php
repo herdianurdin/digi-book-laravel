@@ -11,7 +11,7 @@
 
   <div class="card">
     <div class="card-body">
-      <form class="mb-3">
+      <form class="mb-2">
         <div class="input-group">
           <input type="text" class="form-control" placeholder="" aria-label="" />
           <div class="input-group-append">
