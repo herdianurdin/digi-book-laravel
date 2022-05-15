@@ -12,7 +12,9 @@
           <div class="card-body">
             <h4>Books</h4>
             <h2>999</h2>
-            <a href="#"><h5 class="mb-0">Manage Books</h5></a>
+            <a href="{{ route('manage_books') }}">
+              <h5 class="mb-0">Manage Books</h5>
+            </a>
           </div>
         </div>
       </div>
@@ -21,7 +23,9 @@
           <div class="card-body">
             <h4>Categories</h4>
             <h2>999</h2>
-            <a href="#"><h5 class="mb-0">Manage Categories</h5></a>
+            <a href="{{ route('manage_categories') }}">
+              <h5 class="mb-0">Manage Categories</h5>
+            </a>
           </div>
         </div>
       </div>
