@@ -4,6 +4,7 @@
   <div class="section-header">
     <h1>Add Book</h1>
     <div class="section-header-breadcrumb">
+      <div class="breadcrumb-item active"><a href={{ route('admin')}}>Dashboard</a></div>
       <div class="breadcrumb-item active"><a href={{ route('manage_books')}}>Manage Books</a></div>
       <div class="breadcrumb-item">Add Book</div>
     </div>
