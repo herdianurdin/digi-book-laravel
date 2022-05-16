@@ -30,10 +30,10 @@
   <div class="main-sidebar">
     <aside id="sidebar-wrapper">
       <div class="sidebar-brand">
-        <a href="index.html">DigiBook</a>
+        <a href="{{ route('admin') }}">DigiBook</a>
       </div>
       <div class="sidebar-brand sidebar-brand-sm">
-        <a href="index.html">DB</a>
+        <a href="{{ route('admin') }}">DB</a>
       </div>
       <ul class="sidebar-menu">
         <li class="nav-item dropdown {{ (request()->is('admin')) ? 'active' : ''}}">
@@ -42,7 +42,7 @@
         <li class="nav-item dropdown {{ (request()->is('admin/manage-books*')) ? 'active' : ''}}">
           <a class="nav-link" href="{{ route('manage_books') }}"><i class="fas fa-book"></i> <span>Manage Books</span></a>
         </li>
-        <li class="nav-item dropdown {{ (request()->is('admin/manage-categories')) ? 'active' : ''}}">
+        <li class="nav-item dropdown {{ (request()->is('admin/manage-categories*')) ? 'active' : ''}}">
           <a class="nav-link" href="{{ route('manage_categories') }}"><i class="fas fa-tags"></i> <span>Manage Categories</span></a>
         </li>
       </ul>
