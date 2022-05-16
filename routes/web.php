@@ -18,8 +18,17 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes();
 
 Route::controller(AdminController::class)->group(function () {
+    // Dashboard Admin
     Route::get('admin', 'index')->name('admin');
+
+    // Manage Books
     Route::get('admin/manage-books', 'manageBooks')->name('manage_books');
     Route::get('admin/manage-books/add', 'addBook')->name('add_book');
+
+    // Manage Categories
     Route::get('admin/manage-categories', 'manageCategories')->name('manage_categories');
+    Route::get('admin/manage-categories/search', 'searchCategory')->name('search_category');
+    Route::post('admin/manage-categories', 'storeCategory')->name('store_category');
+    Route::put('admin/manage-categories/{id}/update', 'updateCategory')->name('update_category');
+    Route::delete('admin/manage-categories/{id}/delete', 'destroyCategory')->name('destroy_category');
 });
