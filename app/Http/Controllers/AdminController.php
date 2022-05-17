@@ -35,6 +35,7 @@ class AdminController extends Controller
     {
         $books =  Book::query()
             ->where('title', 'LIKE', '%' . $request->search . '%')
+            ->latest()
             ->paginate(6);
 
         return view('admin.manage_books', compact('books'));
@@ -170,6 +171,7 @@ class AdminController extends Controller
     {
         $categories =  Category::query()
             ->where('name', 'LIKE', '%' . $request->search . '%')
+            ->latest()
             ->get();
 
         return view('admin.manage_categories', compact('categories'));
