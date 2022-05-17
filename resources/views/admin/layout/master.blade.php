@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="{{ asset('assets/css/components.css')}}" />
 </head>
 
-<body class="sidebar-mini">
+<body>
   <!-- Header Content -->
   @include('admin.components.header')
 
