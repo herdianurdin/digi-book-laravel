@@ -42,7 +42,7 @@
   </div>
 
   <div class="pagination justify-content-center">
-    {{ $books->links() }}
+    {{ $books->onEachSide(0)->links() }}
   </div>
 </section>
 @endsection
