@@ -1,23 +1,25 @@
-@extends('admin.layout.master', ['app_title' => 'Add Book'])
+@extends('admin.layout.master', ['app_title' => 'Edit Book'])
 @section('content')
 <section class="section">
   <div class="section-header">
-    <h1>Add Book</h1>
+    <h1>Edit Book</h1>
     <div class="section-header-breadcrumb">
       <div class="breadcrumb-item active"><a href={{ route('admin')}}>Dashboard</a></div>
       <div class="breadcrumb-item active"><a href={{ route('manage_books')}}>Manage Books</a></div>
-      <div class="breadcrumb-item">Add Book</div>
+      <div class="breadcrumb-item">Edit Book</div>
     </div>
   </div>
 
   <div class="section-body">
     <div class="card">
       <div class="card-body">
-        <form id="add-book" action="{{ route('store_book') }}" method="POST" enctype="multipart/form-data">
+        <form id="edit-book" action="{{ route('update_book', $book->id) }}" method="POST" enctype="multipart/form-data">
           @csrf
+          @method('PUT')
           <div class="form-group">
             <label class="form-label">Title :</label>
-            <input onkeydown="if (event.keyCode ===13) { document.querySelector('#btn-add-book').click() }" type="text"
+            <input value="{{ $book->title }}"
+              onkeydown="if (event.keyCode === 13) { document.querySelector('#btn-edit-book').click() }" type="text"
               name="title" class="form-control @error('title') is-invalid @enderror" placeholder="Title">
             @error('title')
             <div class="invalid-feedback">{{ $message }}</div>
@@ -25,7 +27,8 @@
           </div>
           <div class="form-group">
             <label class="form-label">Author :</label>
-            <input onkeydown="if (event.keyCode ===13) { document.querySelector('#btn-add-book').click() }" type="text"
+            <input value="{{ $book->author }}"
+              onkeydown="if (event.keyCode ===13) { document.querySelector('#btn-edit-book').click() }" type="text"
               name="author" class="form-control @error('author') is-invalid @enderror" placeholder="Author">
             @error('author')
             <div class="invalid-feedback">{{ $message }}</div>
@@ -35,7 +38,8 @@
             <label class="form-label">Category :</label>
             <select class="form-control form-control-lg" name="category">
               @foreach ($categories as $category)
-              <option value="{{ $category->id }}">{{ $category->name }}</option>
+              <option {{ $category->id === $book->category_id ? 'selected' : '' }} value="{{ $category->id }}">{{
+                $category->name }}</option>
               @endforeach
             </select>
           </div>
@@ -43,7 +47,7 @@
             <label class="form-label">Description :</label>
             <textarea onkeydown="return (event.keyCode!=13)"
               class="form-control @error('description') is-invalid @enderror" style="height:150px" name="description"
-              placeholder="Description"></textarea>
+              placeholder="Description">{{ $book->description }}</textarea>
             @error('description')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
@@ -64,8 +68,8 @@
           </div>
         </form>
         <div class="form-group">
-          <button id="btn-add-book" class="btn btn-primary form-control" data-toggle="modal"
-            data-target="#modal-add-book">Add
+          <button id="btn-edit-book" class="btn btn-primary form-control" data-toggle="modal"
+            data-target="#modal-edit-book">Update
             Book</button>
         </div>
       </div>
@@ -73,7 +77,7 @@
   </div>
 </section>
 
-<div class="modal fade" tabindex="-1" role="dialog" id="modal-add-book">
+<div class="modal fade" tabindex="-1" role="dialog" id="modal-edit-book">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -83,12 +87,12 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>Do you really want to add that data?</p>
+        <p>Are you sure you want to update the book data?</p>
       </div>
       <div class="modal-footer bg-whitesmoke br">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
         <button type="button" class="btn btn-primary" onclick="event.preventDefault();
-        document.querySelector('#add-book').submit();">Save</button>
+        document.querySelector('#edit-book').submit();">Save</button>
       </div>
     </div>
   </div>

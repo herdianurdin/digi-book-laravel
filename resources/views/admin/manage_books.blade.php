@@ -11,11 +11,21 @@
 
   <div class="card">
     <div class="card-body">
-      <form class="mb-2">
+      @if ($message = Session::get('success'))
+      <div class="alert alert-success alert-dismissible show fade">
+        <div class="alert-body">
+          <button class="close" data-dismiss="alert">
+            <span>×</span>
+          </button>
+          {{ $message }}
+        </div>
+      </div>
+      @endif
+      <form action="{{ route('search_book') }}" class="mb-2" method="GET">
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="" aria-label="" />
+          <input name="search" id="search" type="text" class="form-control" placeholder="Search book..." />
           <div class="input-group-append">
-            <button class="btn btn-primary" type="button">Search</button>
+            <button class="btn btn-primary" type="submit">Search</button>
           </div>
         </div>
       </form>
@@ -25,17 +35,14 @@
 
   <div class="section-body">
     <div class="row">
-      @include('admin.components.card_book_manage', [
-      'title' => 'Title Book',
-      'description' => 'Adipisci, quibusdam atque aperiam asperiores aliquam beatae repellat, perspiciatis iure officiis
-      illum dolorum nostrum alias ratione praesentium distinctio enim doloribus ullam ab.',
-      ])
-      @include('admin.components.card_book_manage', [
-      'title' => 'Title Book',
-      'description' => 'Adipisci, quibusdam atque aperiam asperiores aliquam beatae repellat, perspiciatis iure officiis
-      illum dolorum nostrum alias ratione praesentium distinctio enim doloribus ullam ab.',
-      ])
+      @foreach ($books as $book)
+      @include('admin.components.card_book_manage', $book)
+      @endforeach
     </div>
+  </div>
+
+  <div class="pagination justify-content-center">
+    {{ $books->links() }}
   </div>
 </section>
 @endsection

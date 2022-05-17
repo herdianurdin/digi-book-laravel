@@ -23,7 +23,12 @@ Route::controller(AdminController::class)->group(function () {
 
     // Manage Books
     Route::get('admin/manage-books', 'manageBooks')->name('manage_books');
+    Route::get('admin/manage-books/search', 'searchBook')->name('search_book');
     Route::get('admin/manage-books/add', 'addBook')->name('add_book');
+    Route::post('admin/manage-books/add', 'storeBook')->name('store_book');
+    Route::get('admin/manage-books/edit/{id}', 'editBook')->name('edit_book');
+    Route::put('admin/manage-books/edit/{id}/update', 'updateBook')->name('update_book');
+    Route::delete('admin/manage-books/{id}/delete', 'destroyBook')->name('destroy_book');
 
     // Manage Categories
     Route::get('admin/manage-categories', 'manageCategories')->name('manage_categories');
