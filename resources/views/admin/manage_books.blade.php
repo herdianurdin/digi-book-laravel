@@ -21,7 +21,7 @@
         </div>
       </div>
       @endif
-      <form action="{{ route('search_book') }}" class="mb-2" method="GET">
+      <form action="{{ route('search_book_admin') }}" class="mb-2" method="GET">
         <div class="input-group">
           <input name="search" id="search" type="text" class="form-control" placeholder="Search book..." />
           <div class="input-group-append">
