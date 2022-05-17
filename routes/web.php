@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PublicController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,6 +16,14 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+Route::controller(PublicController::class)->group(function () {
+    Route::get('/', 'index')->name('home');
+    Route::any('/search', 'searchBook')->name('search_book');
+    Route::get('/category', 'categoryBook')->name('category_book');
+    Route::any('/category/filter', 'filterBookByCategory')->name('filter_by_category');
+    Route::get('/about', 'about')->name('about');
+});
+
 Auth::routes();
 
 Route::controller(AdminController::class)->group(function () {
@@ -23,7 +32,7 @@ Route::controller(AdminController::class)->group(function () {
 
     // Manage Books
     Route::get('admin/manage-books', 'manageBooks')->name('manage_books');
-    Route::get('admin/manage-books/search', 'searchBook')->name('search_book');
+    Route::get('admin/manage-books/search', 'searchBook')->name('search_book_admin');
     Route::get('admin/manage-books/add', 'addBook')->name('add_book');
     Route::post('admin/manage-books/add', 'storeBook')->name('store_book');
     Route::get('admin/manage-books/edit/{id}', 'editBook')->name('edit_book');
