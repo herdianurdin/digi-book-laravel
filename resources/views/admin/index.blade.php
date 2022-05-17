@@ -11,7 +11,7 @@
         <div class="card">
           <div class="card-body">
             <h4>Books</h4>
-            <h2>999</h2>
+            <h2>{{ $books->total() }}</h2>
             <a href="{{ route('manage_books') }}">
               <h5 class="mb-0">Manage Books</h5>
             </a>
@@ -22,7 +22,7 @@
         <div class="card">
           <div class="card-body">
             <h4>Categories</h4>
-            <h2>999</h2>
+            <h2>{{ $categories->count() }}</h2>
             <a href="{{ route('manage_categories') }}">
               <h5 class="mb-0">Manage Categories</h5>
             </a>
@@ -36,16 +36,13 @@
 
   <div class="section-body">
     <div class="row">
-      @include('admin.components.card_book', [
-      'title' => 'Title Book',
-      'description' => 'Adipisci, quibusdam atque aperiam asperiores aliquam beatae repellat, perspiciatis iure officiis
-      illum dolorum nostrum alias ratione praesentium distinctio enim doloribus ullam ab.',
-      ])
-      @include('admin.components.card_book', [
-      'title' => 'Title Book',
-      'description' => 'Adipisci, quibusdam atque aperiam asperiores aliquam beatae repellat, perspiciatis iure officiis
-      illum dolorum nostrum alias ratione praesentium distinctio enim doloribus ullam ab.',
-      ])
+      @foreach ($books as $book)
+      @include('admin.components.card_book', $book)
+      @endforeach
+    </div>
+
+    <div class="pagination justify-content-center">
+      {{ $books->onEachSide(0)->links() }}
     </div>
   </div>
 </section>

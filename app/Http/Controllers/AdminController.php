@@ -19,7 +19,10 @@ class AdminController extends Controller
 
     public function index()
     {
-        return view('admin.index');
+        $books = Book::latest()->paginate(6);
+        $categories = Category::get();
+
+        return view('admin.index', compact('books', 'categories'));
     }
 
     public function manageBooks()
