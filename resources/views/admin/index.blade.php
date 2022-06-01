@@ -33,6 +33,9 @@
   </div>
 
   <h2 class="section-title">Book List</h2>
+  @if ($books->isEmpty())
+  <p class="section-lead">Books don't exist!</p>
+  @endif
 
   <div class="section-body">
     <div class="row">

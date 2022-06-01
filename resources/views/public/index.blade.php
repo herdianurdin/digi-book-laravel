@@ -14,7 +14,7 @@
     </div>
 
     <div class="section-body">
-      <h2 class="section-title">List Book</h2>
+      <h2 class="section-title">Book List</h2>
       @if ($books->isEmpty())
       <p class="section-lead">Books don't exist!</p>
       @endif
