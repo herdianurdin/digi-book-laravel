@@ -14,17 +14,22 @@ Publicly accessible online book website. This website is made as simple as possi
 
 ## Getting Started
 
+This application project was built using laravel 9.
+
 ### Prerequisites
 
 ```sh
+sudo apt search php8.0-* 
 ```
 
 ### Installation
 ```sh
-```
+# Install dependency
+composer install
 
-
-```sh
+# Configure .env
+cp .env.example .env
+php artisan key:generate
 ```
 
 ## Usage
