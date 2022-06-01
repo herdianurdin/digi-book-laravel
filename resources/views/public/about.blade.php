@@ -4,20 +4,17 @@
   <div class="section">
     <div class="card">
       <div class="card-body">
-        <h3>About DigiBook</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia molestiae eaque error repellat veniam, nobis
-          nisi, eveniet numquam ad cupiditate ipsum nesciunt tempore in eum? Voluptas cum dolorum culpa accusantium.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam molestiae beatae, vitae odio reiciendis
-          debitis molestias nesciunt ipsum labore soluta aspernatur odit aperiam quibusdam corporis nemo. Sit laboriosam
-          inventore incidunt? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo itaque ipsa laudantium
-          recusandae optio ab corporis odit in cum repudiandae nihil et tempora consectetur ducimus explicabo ex, minima
-          iste assumenda. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum delectus quasi ex possimus
-          numquam neque pariatur sit vel ea, molestias, provident amet quibusdam nihil placeat fugit quis debitis!
-          Officiis, rerum?</p>
-        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, sit impedit! Dicta autem quod est enim,
-          maiores libero aut ex quis consectetur dolorem provident doloremque ea nam, voluptatibus minus tempore! Lorem
-          ipsum dolor sit amet consectetur adipisicing elit. Eligendi neque labore porro harum praesentium quam dolores
-          odio quia, qui fugiat exercitationem, cum autem soluta dolor. Quaerat obcaecati laboriosam illo eligendi!</p>
+        <h3 class="mb-2">About DigiBook</h3>
+        <p>DigiBook is an online library that provides a variety of free ebooks. The ebooks we provide are ebooks that
+          have an open license.</p>
+        <h4 class="mb-2">Our Goal</h4>
+        <p>We created DigiBook to support the community to provide access to libraries for free and free for access.</p>
+        <h4 class="mb-2">Copyright eBooks</h4>
+        <p>The books we collect are books that have an open license. Even if there are those who do not have an open
+          license, the ebook already has permission from the owner to be distributed on our website.</p>
+        <h4 class="mb-2">Support Us</h4>
+        <p class="mb-0">Help DigiBook to collect more free books for public access. You can submit your free book via
+          email <a href="mailto:support@digibook.com" target="_blank">support@digibook.com</a>.</p>
       </div>
     </div>
   </div>
