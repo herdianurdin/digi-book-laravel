@@ -53,6 +53,9 @@
             @enderror
           </div>
           <div class="form-group">
+            <div class="alert alert-light">
+              <div class="alert-body">Note: Only upload new <b>Cover Book</b> if you want to change!</div>
+            </div>
             <label class="form-label">Cover :</label>
             <input type="file" name="cover" class="form-control @error('cover') is-invalid @enderror">
             @error('cover')
@@ -60,6 +63,9 @@
             @enderror
           </div>
           <div class="form-group">
+            <div class="alert alert-light">
+              <div class="alert-body">Note: Only upload new <b>Book File</b> if you want to change!</div>
+            </div>
             <label class="form-label">File :</label>
             <input type="file" name="file" class="form-control @error('file') is-invalid @enderror">
             @error('file')
