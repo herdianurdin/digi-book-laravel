@@ -3,7 +3,7 @@
     <div class="card-body">
       <div class="row">
         <div class="col-sm-4">
-          <img class="w-100" src="{{ asset('uploads/covers/' . $book->cover) }}" />
+          <img class="w-100 shadow" src="{{ asset('uploads/covers/' . $book->cover) }}" />
         </div>
         <div class="col-sm-8">
           <a href="{{ asset('uploads/files/' . $book->file) }}" target="_blank">
