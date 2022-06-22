@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\Book;
 use App\Models\Category;
@@ -19,7 +20,7 @@ class PublicController extends Controller
     public function searchBook(Request $request)
     {
         $books = Book::query()
-            ->where('title', 'LIKE', '%' . $request->search . '%')
+            ->where(DB::raw('LOWER(title)'), 'LIKE', '%' . strtolower($request->search) . '%')
             ->latest()
             ->paginate(6)->withQueryString();
 

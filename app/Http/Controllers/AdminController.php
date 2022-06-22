@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\Book;
 use App\Models\Category;
@@ -34,7 +35,7 @@ class AdminController extends Controller
     public function searchBook(Request $request)
     {
         $books =  Book::query()
-            ->where('title', 'LIKE', '%' . $request->search . '%')
+            ->where(DB::raw('LOWER(title)'), 'LIKE', '%' . strtolower($request->search) . '%')
             ->latest()
             ->paginate(6)->withQueryString();
 
@@ -170,7 +171,7 @@ class AdminController extends Controller
     public function searchCategory(Request $request)
     {
         $categories =  Category::query()
-            ->where('name', 'LIKE', '%' . $request->search . '%')
+            ->where(DB::raw('LOWER(name)'), 'LIKE', '%' . strtolower($request->search) . '%')
             ->latest()
             ->get();
 
