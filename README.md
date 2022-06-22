@@ -2,7 +2,9 @@
 
 ![Screenshot](Screenshot.webp)
 
-Publicly accessible online book website. This website is made as simple as possible, because this project is intended to practice implementing the design of a project.
+Publicly accessible online book website. This website is made as simple as possible, because this project is intended to practice implementing the design of a project. This application project is built using laravel 9 with [stisla template](https://github.com/stisla/stisla).
+
+[View Demo](https://digi-book-laravel.herokuapp.com/)
 
 ### Database Structure
 
@@ -14,13 +16,11 @@ Publicly accessible online book website. This website is made as simple as possi
 
 ## Getting Started
 
-This application project was built using laravel 9.
+### Requirement
 
-### Prerequisites
-
-```sh
-sudo apt search php8.0-* 
-```
+- php 8
+- composer
+- mysql or postgresql
 
 ### Installation
 ```sh
