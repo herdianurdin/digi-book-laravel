@@ -31,6 +31,7 @@ composer install
 cp .env.example .env
 php artisan key:generate
 php artisan migrate:fresh
+php artisan storage:link
 ```
 
 ## Usage
@@ -39,12 +40,6 @@ php artisan migrate:fresh
 
 ```sh
 php artisan db:seed
-```
-
-### Seed Dummy Book
-
-```sh
-php artisan db:seed --class=DummyBookSeeder
 ```
 
 ### Run Project
