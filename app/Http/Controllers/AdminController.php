@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\Book;
@@ -63,8 +63,8 @@ class AdminController extends Controller
         $coverName = time() . '.' . $request->cover->extension();
         $fileName = time() . '.' . $request->file->extension();
 
-        $request->cover->move(public_path('uploads/covers'), $coverName);
-        $request->file->move(public_path('uploads/files'), $fileName);
+        $request->cover->storeAs('public/', $coverName);
+        $request->file->storeAs('public/', $fileName);
 
         Book::create([
             'title' => $request->title,
@@ -106,10 +106,10 @@ class AdminController extends Controller
                 'cover' => ['required', 'mimes:jpg,jpeg,png,webp', 'max:4096'],
             ]);
 
-            File::delete(public_path('uploads/covers/' . $book->cover));
+            Storage::delete('public/' . $book->cover);
 
             $coverName = time() . '.' . $request->cover->extension();
-            $request->cover->move(public_path('uploads/covers'), $coverName);
+            $request->cover->storeAs('public', $coverName);
         }
 
         if ($request->file !== null) {
@@ -117,10 +117,10 @@ class AdminController extends Controller
                 'file' => ['required', 'mimes:pdf', 'max:51200']
             ]);
 
-            File::delete(public_path('uploads/files/' . $book->file));
+            Storage::delete('public/' . $book->file);
 
             $fileName = time() . '.' . $request->file->extension();
-            $request->file->move(public_path('uploads/files'), $fileName);
+            $request->file->storeAs('public', $fileName);
         }
 
         $book->update([
@@ -140,8 +140,8 @@ class AdminController extends Controller
     {
         $book = Book::find($id);
 
-        File::delete(public_path('uploads/covers/' . $book->cover));
-        File::delete(public_path('uploads/files/' . $book->file));
+        Storage::delete('public/' . $book->cover);
+        Storage::delete('public/' . $book->file);
 
         $book->delete();
 
