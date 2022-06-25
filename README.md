@@ -1,6 +1,6 @@
 ## About Project
 
-![Screenshot](Screenshot.webp)
+![Screenshot](screenshot.webp)
 
 Publicly accessible online book website. This website is made as simple as possible, because this project is intended to practice implementing the design of a project. This application project is built using laravel 9 with [stisla template](https://github.com/stisla/stisla).
 
